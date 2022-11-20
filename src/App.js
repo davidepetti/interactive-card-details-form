@@ -4,7 +4,9 @@ import CardForm from './CardForm';
 import CardPreview from './CardPreview';
 
 function App() {
-  const [card, setCard] = useState({});
+  const [card, setCard] = useState({
+    holder: '',
+  });
 
   const Container = styled.div`
     width: 1920px;
@@ -15,7 +17,7 @@ function App() {
   return (
     <Container>
       <CardPreview card={card} />
-      <CardForm card={card} setCard={card} />
+      <CardForm card={card} setCard={setCard} />
     </Container>
   );
 }

@@ -34,12 +34,10 @@ const CardPreview = ({ card }) => {
   return (
     <Container>
       <CardFront>
-        <img src={cardLogo} />
+        {/* <img src={cardLogo} /> */}
         <p>{card.number}</p>
-        <div>
-          <p>{card.holder}</p>
-          <p>{card.expDate}</p>
-        </div>
+        <p>{card.holder}</p>
+        <p>{card.expDate}</p>
       </CardFront>
       <CardBack>
         <p>{card.cvc}</p>
