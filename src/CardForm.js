@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
 const CardForm = ({ card, setCard }) => {
-  const handleChange = (e, updatedCard) => {
-    setCard({ ...card, ...updatedCard });
-  };
-
   return (
     <div>
       <form>
@@ -12,7 +8,8 @@ const CardForm = ({ card, setCard }) => {
         <input
           type='text'
           value={card.holder}
-          onChange={(e) => handleChange(e, { holder: e.target.value })}
+          autoFocus={'autofocus'}
+          onChange={(e) => setCard({ ...card, holder: e.target.value })}
         />
         <label>CARD NUMBER</label>
         <input type='text' />
