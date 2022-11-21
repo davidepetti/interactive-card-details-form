@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 const CardForm = ({
@@ -13,6 +14,19 @@ const CardForm = ({
   setCvc,
   setSubmitted,
 }) => {
+  const holderInput = useRef();
+  const numberInput = useRef();
+
+  useEffect(() => {
+    console.log('holder focus');
+    holderInput.current.focus();
+  }, [holder]);
+
+  useEffect(() => {
+    console.log('number focus');
+    numberInput.current.focus();
+  }, [number]);
+
   return (
     <div>
       <form>
@@ -21,12 +35,14 @@ const CardForm = ({
           type='text'
           value={holder}
           onChange={(e) => setHolder(e.target.value)}
+          ref={holderInput}
         />
         <label>CARD NUMBER</label>
         <input
           type='text'
           value={number}
           onChange={(e) => setNumber(e.target.value)}
+          ref={numberInput}
         />
         <label>EXP. DATE (MM/YY)</label>
         <input type='number' min={1} max={12} />
