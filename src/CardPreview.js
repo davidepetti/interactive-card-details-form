@@ -4,17 +4,17 @@ import cardFront from './images/bg-card-front.png';
 import cardBack from './images/bg-card-back.png';
 import cardLogo from './images/card-logo.svg';
 
-const CardPreview = ({ card }) => {
+const CardPreview = ({ holder, number, expMonth, expYear, cvc }) => {
   const Container = styled.div`
     width: 25%;
-    height: 1080px;
+    height: 100vh;
     background-image: url(${background});
     background-repeat: no-repeat;
     background-size: cover;
   `;
 
   const CardFront = styled.div`
-    margin-top: 130px;
+    margin-top: 200px;
     margin-left: 140px;
     width: 447px;
     height: 245px;
@@ -35,12 +35,13 @@ const CardPreview = ({ card }) => {
     <Container>
       <CardFront>
         {/* <img src={cardLogo} /> */}
-        <p>{card.number}</p>
-        <p>{card.holder}</p>
-        <p>{card.expDate}</p>
+        <p>{number}</p>
+        <p>{holder}</p>
+        <p>{expMonth}</p>
+        <p>{expYear}</p>
       </CardFront>
       <CardBack>
-        <p>{card.cvc}</p>
+        <p>{cvc}</p>
       </CardBack>
     </Container>
   );
