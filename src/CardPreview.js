@@ -4,7 +4,7 @@ import cardFront from './images/bg-card-front.png';
 import cardBack from './images/bg-card-back.png';
 import cardLogo from './images/card-logo.svg';
 
-const CardPreview = ({ holder, number, expMonth, expYear, cvc }) => {
+const CardPreview = ({ card }) => {
   const Container = styled.div`
     width: 25%;
     height: 100vh;
@@ -35,13 +35,13 @@ const CardPreview = ({ holder, number, expMonth, expYear, cvc }) => {
     <Container>
       <CardFront>
         {/* <img src={cardLogo} /> */}
-        <p>{number}</p>
-        <p>{holder}</p>
-        <p>{expMonth}</p>
-        <p>{expYear}</p>
+        <p>{card.number}</p>
+        <p>{card.holder}</p>
+        <p>{card.expMonth}</p>
+        <p>{card.expYear}</p>
       </CardFront>
       <CardBack>
-        <p>{cvc}</p>
+        <p>{card.cvc}</p>
       </CardBack>
     </Container>
   );

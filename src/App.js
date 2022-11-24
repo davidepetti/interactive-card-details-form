@@ -4,15 +4,15 @@ import CardForm from './CardForm';
 import CardPreview from './CardPreview';
 import CardSubmitted from './CardSubmitted';
 
+const Container = styled.div`
+  width: 100vw;
+  margin: 0 auto;
+  display: flex;
+`;
+
 function App() {
   const [card, setCard] = useState({});
   const [submitted, setSubmitted] = useState(false);
-
-  const Container = styled.div`
-    width: 100vw;
-    margin: 0 auto;
-    display: flex;
-  `;
 
   return (
     <Container>
