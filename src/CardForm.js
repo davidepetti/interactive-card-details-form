@@ -1,9 +1,17 @@
 import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 50%;
+`;
+
 const CardForm = ({ card, setCard, setSubmitted }) => {
   return (
-    <div>
+    <Container>
       <form>
         <label>CARDHOLDER NAME</label>
         <input
@@ -41,7 +49,7 @@ const CardForm = ({ card, setCard, setSubmitted }) => {
         />
         <button onClick={() => setSubmitted(true)}>Confirm</button>
       </form>
-    </div>
+    </Container>
   );
 };
 
