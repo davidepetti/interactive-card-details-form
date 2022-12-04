@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import styled from 'styled-components';
+import './App.css';
 import CardForm from './CardForm';
 import CardPreview from './CardPreview';
 import CardSubmitted from './CardSubmitted';
 
 const Container = styled.div`
-  width: 100vw;
+  width: 100%;
+  height: 100vh;
   margin: 0 auto;
   display: flex;
 `;
