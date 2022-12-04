@@ -6,31 +6,31 @@ import cardLogo from './images/card-logo.svg';
 
 const Container = styled.div`
   width: 25%;
-  height: 100vh;
+  height: 100%;
   background-image: url(${background});
   background-repeat: no-repeat;
   background-size: cover;
 `;
 
 const CardFront = styled.div`
-  margin-top: 200px;
-  margin-left: 140px;
-  width: 447px;
-  height: 245px;
+  margin-top: 15em;
+  margin-left: 8em;
+  width: 30em;
+  height: 12em;
   background-image: url(${cardFront});
   background-repeat: no-repeat;
 `;
 
 const CardBack = styled.div`
-  margin-top: 50px;
-  margin-left: 240px;
-  width: 447px;
-  height: 245px;
+  margin-top: 2em;
+  margin-left: 13em;
+  width: 30em;
+  height: 12em;
   background-image: url(${cardBack});
   background-repeat: no-repeat;
 `;
 
-const CardPreview = ({ card }) => {
+function CardPreview({ card }) {
   return (
     <Container>
       <CardFront>
@@ -45,6 +45,6 @@ const CardPreview = ({ card }) => {
       </CardBack>
     </Container>
   );
-};
+}
 
 export default CardPreview;
