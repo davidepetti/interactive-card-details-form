@@ -5,7 +5,7 @@ import cardBack from './images/bg-card-back.png';
 import cardLogo from './images/card-logo.svg';
 
 const Container = styled.div`
-  width: 25%;
+  width: 30%;
   height: 100%;
   background-image: url(${background});
   background-repeat: no-repeat;
@@ -13,19 +13,19 @@ const Container = styled.div`
 `;
 
 const CardFront = styled.div`
-  margin-top: 15em;
-  margin-left: 8em;
-  width: 30em;
-  height: 12em;
+  margin-top: 120px;
+  margin-left: 130px;
+  width: 447px;
+  height: 245px;
   background-image: url(${cardFront});
   background-repeat: no-repeat;
 `;
 
 const CardBack = styled.div`
-  margin-top: 2em;
-  margin-left: 13em;
-  width: 30em;
-  height: 12em;
+  margin-top: 40px;
+  margin-left: 200px;
+  width: 447px;
+  height: 245px;
   background-image: url(${cardBack});
   background-repeat: no-repeat;
 `;

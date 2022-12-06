@@ -8,15 +8,15 @@ const Container = styled.div`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  margin-top: 20%;
-  margin-left: 30%;
+  margin-top: 150px;
+  margin-left: 350px;
 `;
 
 const Label = styled.label`
   color: hsl(278, 68%, 11%);
-  padding-top: 1.5em;
-  padding-bottom: 0.5em;
-  padding-right: 3em;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  padding-right: 80px;
 `;
 
 const Input = styled.input`
