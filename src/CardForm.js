@@ -20,11 +20,11 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
-  width: 30em;
-  height: 2.5em;
+  width: 400px;
+  height: 40px;
   border: 1px solid hsl(270, 3%, 87%);
-  border-radius: 0.5em;
-  padding: 1em;
+  border-radius: 11px;
+  padding: 15px;
 
   ::placeholder {
     font-size: 18px;
@@ -33,12 +33,12 @@ const Input = styled.input`
 `;
 
 const MonthInput = styled.input`
-  width: 6em;
-  height: 2.5em;
+  width: 75px;
+  height: 33px;
   border: 1px solid hsl(270, 3%, 87%);
-  border-radius: 0.5em;
-  margin-right: 1em;
-  padding: 1em;
+  border-radius: 11px;
+  margin-right: 10px;
+  padding: 15px;
 
   ::placeholder {
     font-size: 18px;
@@ -47,12 +47,12 @@ const MonthInput = styled.input`
 `;
 
 const YearInput = styled.input`
-  width: 6em;
-  height: 2.5em;
+  width: 75px;
+  height: 33px;
   border: 1px solid hsl(270, 3%, 87%);
-  border-radius: 0.5em;
-  margin-right: 2em;
-  padding: 1em;
+  border-radius: 11px;
+  margin-right: 10px;
+  padding: 15px;
 
   ::placeholder {
     font-size: 18px;
@@ -61,12 +61,12 @@ const YearInput = styled.input`
 `;
 
 const CvcInput = styled.input`
-  width: 10em;
-  height: 2.5em;
+  width: 160px;
+  height: 33px;
   border: 1px solid hsl(270, 3%, 87%);
-  border-radius: 0.5em;
-  margin-right: 1em;
-  padding: 1em;
+  border-radius: 11px;
+  margin-left: 10px;
+  padding: 15px;
 
   ::placeholder {
     font-size: 18px;
@@ -83,11 +83,11 @@ const BottomInputs = styled.div`
 `;
 
 const Button = styled.button`
-  width: 23em;
-  height: 3em;
-  border-radius: 0.5em;
-  font-size: 0.9em;
-  margin-top: 2em;
+  width: 430px;
+  height: 60px;
+  border-radius: 11px;
+  font-size: 18px;
+  margin-top: 40px;
   color: white;
   background-color: hsl(278, 68%, 11%);
 `;
