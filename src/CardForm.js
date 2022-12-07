@@ -93,6 +93,26 @@ const Button = styled.button`
 `;
 
 function CardForm({ card, setCard, setSubmitted }) {
+  const handleCardNumberChange = (event) => {
+    const inputVal = event.target.value.replace(/ /g, ''); // Remove all the empty spaces in the input
+    let inputNumbersOnly = inputVal.replace(/\D/g, ''); // Get only digits
+
+    if (inputNumbersOnly.length > 16) {
+      //If entered value has a length greater than 16 then take only the first 16 digits
+      inputNumbersOnly = inputNumbersOnly.substr(0, 16);
+    }
+
+    // Get nd array of 4 digits per an element EX: ["4242", "4242", ...]
+    const splits = inputNumbersOnly.match(/.{1,4}/g);
+
+    let spacedNumber = '';
+    if (splits) {
+      spacedNumber = splits.join(' '); // Join all the splits with an empty space
+    }
+
+    setCard({ ...card, number: spacedNumber });
+  };
+
   return (
     <Container>
       <Form>
@@ -108,7 +128,7 @@ function CardForm({ card, setCard, setSubmitted }) {
           type='text'
           placeholder='e.g. 1234 5678 9123 0000'
           value={card.number}
-          onChange={(e) => setCard({ ...card, number: e.target.value })}
+          onChange={handleCardNumberChange}
         />
         <BottomLabels>
           <Label>EXP. DATE (MM/YY)</Label>
