@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -23,6 +24,7 @@ const Input = styled.input`
   width: 400px;
   height: 40px;
   border: 1px solid hsl(270, 3%, 87%);
+  border-color: ${(props) => (props.error ? 'red' : 'balck')};
   border-radius: 11px;
   padding: 15px;
 
@@ -38,6 +40,7 @@ const MonthInput = styled.input`
   border: 1px solid hsl(270, 3%, 87%);
   border-radius: 11px;
   margin-right: 10px;
+  border-color: ${(props) => (props.error ? 'red' : 'balck')};
   padding: 15px;
 
   ::placeholder {
@@ -52,6 +55,7 @@ const YearInput = styled.input`
   border: 1px solid hsl(270, 3%, 87%);
   border-radius: 11px;
   margin-right: 10px;
+  border-color: ${(props) => (props.error ? 'red' : 'balck')};
   padding: 15px;
 
   ::placeholder {
@@ -65,6 +69,7 @@ const CvcInput = styled.input`
   height: 33px;
   border: 1px solid hsl(270, 3%, 87%);
   border-radius: 11px;
+  border-color: ${(props) => (props.error ? 'red' : 'balck')};
   margin-left: 10px;
   padding: 15px;
 
@@ -90,9 +95,32 @@ const Button = styled.button`
   margin-top: 40px;
   color: white;
   background-color: hsl(278, 68%, 11%);
+
+  :hover {
+    cursor: pointer;
+  }
+`;
+
+const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Error = styled.span`
+  font-size: 12px;
+  letter-spacing: 1px;
+  padding: 2px;
+  margin-left: 8px;
+  color: red;
 `;
 
 function CardForm({ card, setCard, setSubmitted }) {
+  const [holderError, setHolderError] = useState(false);
+  const [numberError, setNumberError] = useState(false);
+  const [monthError, setMonthError] = useState(false);
+  const [yearError, setYearError] = useState(false);
+  const [cvcError, setCvcError] = useState(false);
+
   const handleCardNumberChange = (event) => {
     const inputVal = event.target.value.replace(/ /g, ''); // Remove all the empty spaces in the input
     let inputNumbersOnly = inputVal.replace(/\D/g, ''); // Get only digits
@@ -113,49 +141,119 @@ function CardForm({ card, setCard, setSubmitted }) {
     setCard({ ...card, number: spacedNumber });
   };
 
+  const handleSubmitClick = (event) => {
+    event.preventDefault();
+    let error = false;
+
+    if (!card.holder || card.holder === '') {
+      setHolderError(true);
+      error = true;
+    } else {
+      setHolderError(false);
+    }
+
+    if (!card.number || card.number === '') {
+      setNumberError(true);
+      error = true;
+    } else {
+      setNumberError(false);
+    }
+
+    if (!card.expMonth || card.expMonth === '') {
+      setMonthError(true);
+      error = true;
+    } else {
+      setMonthError(false);
+    }
+
+    if (!card.expYear || card.expYear === '') {
+      setYearError(true);
+      error = true;
+    } else {
+      setYearError(false);
+    }
+
+    if (!card.cvc || card.cvc === '') {
+      setCvcError(true);
+      error = true;
+    } else {
+      setCvcError(false);
+    }
+
+    if (!error) {
+      setSubmitted(true);
+    }
+  };
+
   return (
     <Container>
       <Form>
         <Label>CARDHOLDER NAME</Label>
-        <Input
-          type='text'
-          placeholder='e.g. Jane Appleseed'
-          value={card.holder}
-          onChange={(e) => setCard({ ...card, holder: e.target.value })}
-        />
+        <InputContainer>
+          <Input
+            type='text'
+            placeholder='e.g. Jane Appleseed'
+            value={card.holder}
+            onChange={(e) => setCard({ ...card, holder: e.target.value })}
+            error={holderError}
+          />
+          {holderError && <Error>Can't be blank</Error>}
+        </InputContainer>
         <Label>CARD NUMBER</Label>
-        <Input
-          type='text'
-          placeholder='e.g. 1234 5678 9123 0000'
-          value={card.number}
-          onChange={handleCardNumberChange}
-        />
+        <InputContainer>
+          <Input
+            type='text'
+            placeholder='e.g. 1234 5678 9123 0000'
+            value={card.number}
+            onChange={handleCardNumberChange}
+            error={numberError}
+          />
+          {numberError && <Error>Can't be blank</Error>}
+        </InputContainer>
         <BottomLabels>
           <Label>EXP. DATE (MM/YY)</Label>
           <Label>CVC</Label>
         </BottomLabels>
         <BottomInputs>
-          <MonthInput
-            type='text'
-            placeholder='MM'
-            value={card.expMonth}
-            onChange={(e) => setCard({ ...card, expMonth: e.target.value })}
-          />
-          <YearInput
-            type='text'
-            placeholder='YY'
-            value={card.expYear}
-            onChange={(e) => setCard({ ...card, expYear: e.target.value })}
-          />
-          <CvcInput
-            type='text'
-            placeholder='e.g. 123'
-            value={card.cvc}
-            onChange={(e) => setCard({ ...card, cvc: e.target.value })}
-          />
+          <InputContainer>
+            <MonthInput
+              type='number'
+              placeholder='MM'
+              min={1}
+              max={12}
+              value={card.expMonth}
+              onChange={(e) => setCard({ ...card, expMonth: e.target.value })}
+              error={monthError}
+            />
+            {monthError && <Error>Can't be blank</Error>}
+          </InputContainer>
+          <InputContainer>
+            <YearInput
+              type='number'
+              placeholder='YY'
+              min={0}
+              max={99}
+              value={card.expYear}
+              onChange={(e) => setCard({ ...card, expYear: e.target.value })}
+              error={yearError}
+            />
+            {yearError && <Error>Can't be blank</Error>}
+          </InputContainer>
+          <InputContainer>
+            <CvcInput
+              type='number'
+              placeholder='e.g. 123'
+              min={0}
+              max={999}
+              value={card.cvc}
+              onChange={(e) => setCard({ ...card, cvc: e.target.value })}
+              error={cvcError}
+            />
+            {cvcError && <Error>Can't be blank</Error>}
+          </InputContainer>
         </BottomInputs>
 
-        <Button onClick={() => setSubmitted(true)}>Confirm</Button>
+        <Button onClick={handleSubmitClick}>Confirm</Button>
       </Form>
     </Container>
   );
