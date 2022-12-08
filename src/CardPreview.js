@@ -30,15 +30,53 @@ const CardBack = styled.div`
   background-repeat: no-repeat;
 `;
 
+const Logo = styled.img`
+  margin-top: 20px;
+  margin-left: 25px;
+`;
+
+const CardNumber = styled.p`
+  font-size: 25px;
+  margin-top: 60px;
+  letter-spacing: 5px;
+  color: white;
+  text-align: center;
+`;
+
+const CardHolder = styled.p`
+  font-size: 12px;
+  margin-top: 12px;
+  letter-spacing: 4px;
+  color: white;
+  text-transform: uppercase;
+  margin-left: 50px;
+`;
+
+const BottomContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const ExpDate = styled.p`
+  font-size: 12px;
+  margin-top: 12px;
+  letter-spacing: 4px;
+  color: white;
+  margin-right: 50px;
+`;
+
 function CardPreview({ card }) {
   return (
     <Container>
       <CardFront>
-        {/* <img src={cardLogo} /> */}
-        <p>{card.number}</p>
-        <p>{card.holder}</p>
-        <p>{card.expMonth}</p>
-        <p>{card.expYear}</p>
+        <Logo src={cardLogo} />
+        <CardNumber>{card.number}</CardNumber>
+        <BottomContainer>
+          <CardHolder>{card.holder}</CardHolder>
+          {card.expMonth && card.expYear && (
+            <ExpDate>{`${card.expMonth}/${card.expYear}`}</ExpDate>
+          )}
+        </BottomContainer>
       </CardFront>
       <CardBack>
         <p>{card.cvc}</p>
