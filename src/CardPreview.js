@@ -49,7 +49,7 @@ const CardHolder = styled.p`
   letter-spacing: 4px;
   color: white;
   text-transform: uppercase;
-  margin-left: 50px;
+  margin-left: 35px;
 `;
 
 const BottomContainer = styled.div`
@@ -62,7 +62,15 @@ const ExpDate = styled.p`
   margin-top: 12px;
   letter-spacing: 4px;
   color: white;
-  margin-right: 50px;
+  margin-right: 35px;
+`;
+
+const CardCvc = styled.p`
+  font-size: 15px;
+  color: white;
+  position: relative;
+  top: 45%;
+  left: 80%;
 `;
 
 function CardPreview({ card }) {
@@ -79,7 +87,7 @@ function CardPreview({ card }) {
         </BottomContainer>
       </CardFront>
       <CardBack>
-        <p>{card.cvc}</p>
+        <CardCvc>{card.cvc}</CardCvc>
       </CardBack>
     </Container>
   );
