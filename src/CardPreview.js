@@ -13,8 +13,9 @@ const Container = styled.div`
 `;
 
 const CardFront = styled.div`
-  margin-top: 120px;
-  margin-left: 130px;
+  position: relative;
+  top: 15%;
+  left: 30%;
   width: 447px;
   height: 245px;
   background-image: url(${cardFront});
@@ -22,8 +23,9 @@ const CardFront = styled.div`
 `;
 
 const CardBack = styled.div`
-  margin-top: 40px;
-  margin-left: 200px;
+  position: relative;
+  top: 18%;
+  left: 50%;
   width: 447px;
   height: 245px;
   background-image: url(${cardBack});
@@ -31,13 +33,15 @@ const CardBack = styled.div`
 `;
 
 const Logo = styled.img`
-  margin-top: 20px;
-  margin-left: 25px;
+  position: relative;
+  top: 10%;
+  left: 10%;
 `;
 
 const CardNumber = styled.p`
   font-size: 25px;
-  margin-top: 60px;
+  position: relative;
+  top: 20%;
   letter-spacing: 5px;
   color: white;
   text-align: center;
@@ -45,24 +49,26 @@ const CardNumber = styled.p`
 
 const CardHolder = styled.p`
   font-size: 12px;
-  margin-top: 12px;
+  position: relative;
+  left: 10%;
   letter-spacing: 4px;
   color: white;
   text-transform: uppercase;
-  margin-left: 35px;
 `;
 
 const BottomContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  position: relative;
+  top: 20%;
 `;
 
 const ExpDate = styled.p`
   font-size: 12px;
-  margin-top: 12px;
   letter-spacing: 4px;
   color: white;
-  margin-right: 35px;
+  position: relative;
+  right: 10%;
 `;
 
 const CardCvc = styled.p`
