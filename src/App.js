@@ -10,6 +10,10 @@ const Container = styled.div`
   height: 100vh;
   margin: 0 auto;
   display: flex;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 function App() {

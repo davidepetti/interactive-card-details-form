@@ -10,6 +10,12 @@ const Container = styled.div`
   background-image: url(${background});
   background-repeat: no-repeat;
   background-size: cover;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 40%;
+    flex-direction: column;
+  }
 `;
 
 const CardFront = styled.div`
@@ -20,6 +26,14 @@ const CardFront = styled.div`
   height: 245px;
   background-image: url(${cardFront});
   background-repeat: no-repeat;
+
+  @media (max-width: 768px) {
+    width: auto;
+    height: 100%;
+    top: 50%;
+    left: 2%;
+    z-index: 1;
+  }
 `;
 
 const CardBack = styled.div`
@@ -30,6 +44,13 @@ const CardBack = styled.div`
   height: 245px;
   background-image: url(${cardBack});
   background-repeat: no-repeat;
+
+  @media (max-width: 768px) {
+    position: absolute;
+    background-size: cover;
+    top: 3%;
+    left: 15%;
+  }
 `;
 
 const Logo = styled.img`
@@ -45,6 +66,10 @@ const CardNumber = styled.p`
   letter-spacing: 5px;
   color: white;
   text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const CardHolder = styled.p`
@@ -77,6 +102,10 @@ const CardCvc = styled.p`
   position: relative;
   top: 45%;
   left: 80%;
+
+  @media (max-width: 768px) {
+    top: 40%;
+  }
 `;
 
 function CardPreview({ card }) {

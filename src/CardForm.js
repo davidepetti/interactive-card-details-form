@@ -7,11 +7,20 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 60%;
+  }
 `;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    margin-top: 100px;
+  }
 `;
 
 const Label = styled.label`
@@ -19,6 +28,13 @@ const Label = styled.label`
   padding-top: 20px;
   padding-bottom: 10px;
   padding-right: 80px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+  }
 `;
 
 const Input = styled.input`
@@ -32,6 +48,16 @@ const Input = styled.input`
   ::placeholder {
     font-size: 18px;
     color: hsl(270, 3%, 87%);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 20px;
+
+    ::placeholder {
+      font-size: 12px;
+      color: hsl(270, 3%, 87%);
+    }
   }
 `;
 
@@ -48,6 +74,16 @@ const MonthInput = styled.input`
     font-size: 18px;
     color: hsl(270, 3%, 87%);
   }
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 20px;
+
+    ::placeholder {
+      font-size: 12px;
+      color: hsl(270, 3%, 87%);
+    }
+  }
 `;
 
 const YearInput = styled.input`
@@ -63,6 +99,16 @@ const YearInput = styled.input`
     font-size: 18px;
     color: hsl(270, 3%, 87%);
   }
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 20px;
+
+    ::placeholder {
+      font-size: 12px;
+      color: hsl(270, 3%, 87%);
+    }
+  }
 `;
 
 const CvcInput = styled.input`
@@ -77,6 +123,16 @@ const CvcInput = styled.input`
   ::placeholder {
     font-size: 18px;
     color: hsl(270, 3%, 87%);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 20px;
+
+    ::placeholder {
+      font-size: 12px;
+      color: hsl(270, 3%, 87%);
+    }
   }
 `;
 
@@ -99,6 +155,13 @@ const Button = styled.button`
 
   :hover {
     cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    width: 300px;
+    height: 40px;
+    font-size: 14px;
+    margin-top: 20px;
   }
 `;
 

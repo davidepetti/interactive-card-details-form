@@ -8,6 +8,12 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 50%;
+    margin-top: 70px;
+  }
 `;
 
 const Button = styled.button`
