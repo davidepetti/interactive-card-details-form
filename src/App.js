@@ -20,7 +20,7 @@ function App() {
     <Container>
       <CardPreview card={card} />
       {submitted ? (
-        <CardSubmitted />
+        <CardSubmitted setCard={setCard} setSubmitted={setSubmitted} />
       ) : (
         <CardForm card={card} setCard={setCard} setSubmitted={setSubmitted} />
       )}

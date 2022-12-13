@@ -4,13 +4,14 @@ import styled from 'styled-components';
 const Container = styled.div`
   width: 75%;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  margin-top: 150px;
-  margin-left: 350px;
 `;
 
 const Label = styled.label`
