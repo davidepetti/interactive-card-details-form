@@ -4,3 +4,7 @@
   font-family: 'Space Grotesk', sans-serif;
   letter-spacing: 2px;
 }
+
+body {
+  margin: 0;
+}

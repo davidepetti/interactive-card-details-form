@@ -5,17 +5,6 @@ import CardForm from './CardForm';
 import CardPreview from './CardPreview';
 import CardSubmitted from './CardSubmitted';
 
-const Container = styled.div`
-  width: 100%;
-  height: 100vh;
-  margin: 0 auto;
-  display: flex;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
 function App() {
   const [card, setCard] = useState({});
   const [submitted, setSubmitted] = useState(false);
@@ -33,3 +22,14 @@ function App() {
 }
 
 export default App;
+
+const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`;

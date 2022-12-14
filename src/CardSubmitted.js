@@ -1,6 +1,27 @@
 import styled from 'styled-components';
 import iconComplete from './images/icon-complete.svg';
 
+function CardSubmitted({ setCard, setSubmitted }) {
+  return (
+    <Container>
+      {/* <IconComplete /> */}
+      <img src={iconComplete}></img>
+      <h1>THANK YOU!</h1>
+      <p>We've added your card details</p>
+      <Button
+        onClick={() => {
+          setCard({});
+          setSubmitted(false);
+        }}
+      >
+        Continue
+      </Button>
+    </Container>
+  );
+}
+
+export default CardSubmitted;
+
 const Container = styled.div`
   width: 75%;
   height: 100vh;
@@ -29,23 +50,3 @@ const Button = styled.button`
     cursor: pointer;
   }
 `;
-
-function CardSubmitted({ setCard, setSubmitted }) {
-  return (
-    <Container>
-      <img src={iconComplete}></img>
-      <h1>THANK YOU!</h1>
-      <p>We've added your card details</p>
-      <Button
-        onClick={() => {
-          setCard({});
-          setSubmitted(false);
-        }}
-      >
-        Continue
-      </Button>
-    </Container>
-  );
-}
-
-export default CardSubmitted;
