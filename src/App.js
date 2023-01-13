@@ -1,23 +1,23 @@
-import { useState } from 'react';
+import { useState, createContext } from 'react';
 import styled from 'styled-components';
 import './App.css';
 import CardForm from './CardForm';
 import CardPreview from './CardPreview';
 import CardSubmitted from './CardSubmitted';
 
+export const AppContext = createContext(null);
+
 function App() {
   const [card, setCard] = useState({});
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <Container>
-      <CardPreview card={card} />
-      {submitted ? (
-        <CardSubmitted setCard={setCard} setSubmitted={setSubmitted} />
-      ) : (
-        <CardForm card={card} setCard={setCard} setSubmitted={setSubmitted} />
-      )}
-    </Container>
+    <AppContext.Provider value={{ card, setCard, submitted, setSubmitted }}>
+      <Container>
+        <CardPreview />
+        {submitted ? <CardSubmitted /> : <CardForm />}
+      </Container>
+    </AppContext.Provider>
   );
 }
 

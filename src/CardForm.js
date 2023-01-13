@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { AppContext } from './App';
 import styled from 'styled-components';
 
-function CardForm({ card, setCard, setSubmitted }) {
+function CardForm() {
+  const { card, setCard, setSubmitted } = useContext(AppContext);
   const [holderError, setHolderError] = useState(false);
   const [numberError, setNumberError] = useState(false);
   const [monthError, setMonthError] = useState(false);

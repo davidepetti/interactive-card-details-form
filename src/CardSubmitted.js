@@ -1,7 +1,11 @@
+import { useContext } from 'react';
+import { AppContext } from './App';
 import styled from 'styled-components';
 import iconComplete from './images/icon-complete.svg';
 
-function CardSubmitted({ setCard, setSubmitted }) {
+function CardSubmitted() {
+  const { setCard, setSubmitted } = useContext(AppContext);
+
   return (
     <Container>
       {/* <IconComplete /> */}

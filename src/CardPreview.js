@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { AppContext } from './App';
 import styled from 'styled-components';
 import background from './images/bg-main-desktop.png';
 import cardFront from './images/bg-card-front.png';
@@ -108,7 +110,9 @@ const CardCvc = styled.p`
   }
 `;
 
-function CardPreview({ card }) {
+function CardPreview() {
+  const { card } = useContext(AppContext);
+
   return (
     <Container>
       <CardFront>
