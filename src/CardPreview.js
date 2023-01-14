@@ -6,6 +6,28 @@ import cardFront from './images/bg-card-front.png';
 import cardBack from './images/bg-card-back.png';
 import cardLogo from './images/card-logo.svg';
 
+function CardPreview() {
+  const { card } = useContext(AppContext);
+
+  return (
+    <Container>
+      <CardFront>
+        <Logo src={cardLogo} />
+        <CardNumber>{card.number}</CardNumber>
+        <BottomContainer>
+          <CardHolder>{card.holder}</CardHolder>
+          {card.expMonth && card.expYear && (
+            <ExpDate>{`${card.expMonth}/${card.expYear}`}</ExpDate>
+          )}
+        </BottomContainer>
+      </CardFront>
+      <CardBack>
+        <CardCvc>{card.cvc}</CardCvc>
+      </CardBack>
+    </Container>
+  );
+}
+
 const Container = styled.div`
   width: 30%;
   height: 100%;
@@ -109,27 +131,5 @@ const CardCvc = styled.p`
     top: 40%;
   }
 `;
-
-function CardPreview() {
-  const { card } = useContext(AppContext);
-
-  return (
-    <Container>
-      <CardFront>
-        <Logo src={cardLogo} />
-        <CardNumber>{card.number}</CardNumber>
-        <BottomContainer>
-          <CardHolder>{card.holder}</CardHolder>
-          {card.expMonth && card.expYear && (
-            <ExpDate>{`${card.expMonth}/${card.expYear}`}</ExpDate>
-          )}
-        </BottomContainer>
-      </CardFront>
-      <CardBack>
-        <CardCvc>{card.cvc}</CardCvc>
-      </CardBack>
-    </Container>
-  );
-}
 
 export default CardPreview;
